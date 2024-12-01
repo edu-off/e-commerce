@@ -11,7 +11,7 @@ Tech Challenge Pós Tech FIAP - Microsserviço de gestão de produtos
 * **Framework de testes:** Junit 5
 * **Relatório de testes:** Allure 2.29.0
 
-### Collection com payloads de teste: clique aqui.
+### Collection com payloads de teste: [clique aqui.](https://github.com/edu-off/e-commerce/blob/main/ms-produto/collection/produto_collection.json)
 
 ## **Comandos importantes via makefile**
 
