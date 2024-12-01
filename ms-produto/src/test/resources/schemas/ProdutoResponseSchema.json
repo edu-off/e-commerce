@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Produto Response",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "nome": {
+      "type": "string"
+    },
+    "descricao": {
+      "type": "string"
+    },
+    "preco": {
+      "type": "number"
+    },
+    "quantidade": {
+      "type": "number"
+    },
+    "categoria": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "nome",
+    "descricao",
+    "preco",
+    "quantidade",
+    "categoria"
+  ]
+}

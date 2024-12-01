@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Pedido Response",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "clienteId": {
+      "type": "number"
+    },
+    "status": {
+      "type": "string"
+    },
+    "produtos": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "quantidade": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "id",
+            "quantidade"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "clienteId",
+    "status",
+    "produtos"
+  ]
+}

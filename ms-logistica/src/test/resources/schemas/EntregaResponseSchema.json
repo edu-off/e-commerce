@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Entrega Response",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "status": {
+      "type": "string"
+    },
+    "clienteId": {
+      "type": "number"
+    },
+    "pedidoId": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "id",
+    "status",
+    "clienteId",
+    "pedidoId"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Page Cliente Response",
+  "type": "object",
+  "properties": {
+    "content": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "nome": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            },
+            "ddd": {
+              "type": "number"
+            },
+            "telefone": {
+              "type": "number"
+            },
+            "endereco": {
+              "type": "null"
+            }
+          },
+          "required": [
+            "id",
+            "nome",
+            "status",
+            "email",
+            "ddd",
+            "telefone",
+            "endereco"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "content"
+  ]
+}

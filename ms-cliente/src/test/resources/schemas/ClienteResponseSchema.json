@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Cliente Response",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "nome": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "ddd": {
+      "type": "number"
+    },
+    "telefone": {
+      "type": "number"
+    },
+    "endereco": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "id",
+    "nome",
+    "status",
+    "email",
+    "ddd",
+    "telefone",
+    "endereco"
+  ]
+}
