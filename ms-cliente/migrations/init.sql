@@ -10,9 +10,11 @@ CREATE TABLE IF NOT EXISTS `db-cliente`.`cliente` (
     `email` VARCHAR(100) NOT NULL,
     `ddd` INT NULL,
     `telefone` INT NULL,
-    PRIMARY KEY (`id`)
+    PRIMARY KEY (`id`),
+    INDEX `cliente_nome_idx` (`nome` ASC) VISIBLE,
+    INDEX `cliente_status_idx` (`status` ASC) VISIBLE,
+    INDEX `cliente_email_idx` (`email` ASC) VISIBLE
 );
-
 
 -- -----------------------------------------------------
 -- Table `db-cliente`.`endereco`

@@ -8,6 +8,7 @@ import br.com.ms.logistica.domain.entities.EntregaEntity;
 import br.com.ms.logistica.domain.entities.EntregadorEntity;
 import br.com.ms.logistica.domain.enums.StatusEntrega;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 
 import java.util.List;
@@ -32,7 +33,7 @@ public class IniciaEntregaController {
         this.iniciaEntrega = iniciaEntrega;
     }
 
-    //@Scheduled(cron = "0 0/15 * * * *", zone = "America/Sao_Paulo")
+    @Scheduled(cron = "0 0/15 * * * *", zone = "America/Sao_Paulo")
     public void run() {
         List<EntregaEntity> entregas = buscaEntregasPendentes.run();
         entregas.forEach(entrega -> {

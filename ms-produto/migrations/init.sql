@@ -10,7 +10,10 @@ CREATE TABLE IF NOT EXISTS `db-produto`.`produto` (
     `preco` DECIMAL NOT NULL,
     `quantidade` INT NOT NULL,
     `categoria` VARCHAR(50) NOT NULL,
-    PRIMARY KEY (`id`)
+    PRIMARY KEY (`id`),
+    INDEX `produto_nome_idx` (`nome` ASC) VISIBLE,
+    INDEX `produto_descricao_idx` (`descricao` ASC) VISIBLE,
+    INDEX `produto_categoria_idx` (`categoria` ASC) VISIBLE
 );
 
 DROP TABLE IF EXISTS `db-produto`.`BATCH_JOB_INSTANCE`;

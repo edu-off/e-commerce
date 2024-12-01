@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS `db-logistica`.`entregador` (
     `nome` VARCHAR(50) NOT NULL,
     `email` VARCHAR(100) NOT NULL,
     PRIMARY KEY (`id`),
-    INDEX `fk_entregador_status_idx` (`status` ASC) VISIBLE
+    INDEX `entregador_status_idx` (`status` ASC) VISIBLE
 );
 
 -- -----------------------------------------------------
@@ -32,8 +32,8 @@ CREATE TABLE IF NOT EXISTS `db-logistica`.`entrega` (
     `cep` INT NULL,
     `entregador_id` BIGINT NULL,
     PRIMARY KEY (`id`),
-    INDEX `fk_entrega_entregador_idx` (`entregador_id` ASC) VISIBLE,
-    INDEX `fk_entrega_status_idx` (`status` ASC) VISIBLE,
+    INDEX `entrega_entregador_idx` (`entregador_id` ASC) VISIBLE,
+    INDEX `entrega_status_idx` (`status` ASC) VISIBLE,
     CONSTRAINT `fk_entrega_entregador`
     FOREIGN KEY (`entregador_id`)
     REFERENCES `db-logistica`.`entregador` (`id`)
