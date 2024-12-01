@@ -50,19 +50,19 @@ public class PedidoResource {
         return ResponseEntity.status(HttpStatus.OK).body(responseDTO);
     }
 
-    @PutMapping(value = "confirmacao/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "confirmacao/{id}")
     public ResponseEntity<String> confirma(@PathVariable Long id) {
         confirmaPedidoController.run(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
-    @PutMapping(value = "cancelamento/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "cancelamento/{id}")
     public ResponseEntity<String> cancela(@PathVariable Long id) {
         cancelaPedidoController.run(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
-    @PutMapping(value = "conclusao/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "conclusao/{id}")
     public ResponseEntity<String> conclui(@PathVariable Long id) {
         concluiPedidoController.run(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();

@@ -5,7 +5,6 @@ import br.com.ms.logistica.adapters.controllers.ConcluiEntregaController;
 import br.com.ms.logistica.adapters.controllers.IniciaEntregaController;
 import br.com.ms.logistica.adapters.controllers.RegistraEntregaController;
 import br.com.ms.logistica.application.dto.EntregaDTO;
-import br.com.ms.logistica.application.usecases.IniciaEntrega;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -39,13 +38,13 @@ public class EntregaResource {
         return ResponseEntity.status(HttpStatus.CREATED).body(responseDTO);
     }
 
-    @PutMapping(value = "/conclusao/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/conclusao/{id}")
     public ResponseEntity<String> conclui(@PathVariable Long id) {
         concluiEntrega.run(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
-    @PutMapping(value = "/cancelamento/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/cancelamento/{id}")
     public ResponseEntity<String> cancela(@PathVariable Long id) {
         cancelaEntrega.run(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
