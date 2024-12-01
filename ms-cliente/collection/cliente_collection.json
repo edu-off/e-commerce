@@ -1,0 +1,218 @@
+{
+	"info": {
+		"_postman_id": "057a2375-57c6-45dc-96cd-dcd6884386a1",
+		"name": "E-Commerce - Cliente",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39998361"
+	},
+	"item": [
+		{
+			"name": "Cliente - busca por id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/e-commerce/cliente/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"e-commerce",
+						"cliente",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cliente - busca por status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/e-commerce/cliente/status/ATIVO",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"e-commerce",
+						"cliente",
+						"status",
+						"ATIVO"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cliente - atualiza por id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"nome atualizado\",\r\n  \"status\": \"ATIVO\",\r\n  \"email\": \"teste@teste.com.br\",\r\n  \"ddd\": 1,\r\n  \"telefone\": 1,\r\n  \"endereco\": {\r\n    \"logradouro\": \"teste\",\r\n    \"bairro\": \"teste\",\r\n    \"cidade\": \"teste\",\r\n    \"uf\": \"SP\",\r\n    \"cep\": 1\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/e-commerce/cliente/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"e-commerce",
+						"cliente",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cliente - registra",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"nome\",\r\n  \"status\": \"ATIVO\",\r\n  \"email\": \"teste@teste.com.br\",\r\n  \"ddd\": 1,\r\n  \"telefone\": 1,\r\n  \"endereco\": {\r\n    \"logradouro\": \"teste\",\r\n    \"bairro\": \"teste\",\r\n    \"cidade\": \"teste\",\r\n    \"uf\": \"SP\",\r\n    \"cep\": 1\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/e-commerce/cliente",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"e-commerce",
+						"cliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cliente - inativa por id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/e-commerce/cliente/inativa/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"e-commerce",
+						"cliente",
+						"inativa",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cliente - ativa por id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/e-commerce/cliente/ativa/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"e-commerce",
+						"cliente",
+						"ativa",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cliente - busca por nome",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/e-commerce/cliente/nome/nome",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"e-commerce",
+						"cliente",
+						"nome",
+						"nome"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cliente - busca por e-mail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/e-commerce/cliente/email/teste",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"e-commerce",
+						"cliente",
+						"email",
+						"teste"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

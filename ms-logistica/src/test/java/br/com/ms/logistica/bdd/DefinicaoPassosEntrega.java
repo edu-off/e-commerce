@@ -31,8 +31,6 @@ public class DefinicaoPassosEntrega {
     private final String ENDPOINT_PRODUTO = "http://localhost:8082/e-commerce/produto";
     private final String ENDPOINT_PEDIDO = "http://localhost:8083/e-commerce/pedido";
     private final String ENDPOINT_ENTREGA = "http://localhost:8084/e-commerce/entrega";
-    private final String ENDPOINT_ENTREGADOR = "http://localhost:8084/e-commerce/entregador";
-
 
     @Quando("um cliente é registrado")
     public void umClienteÉRegistrado() {
@@ -76,6 +74,8 @@ public class DefinicaoPassosEntrega {
 
         response = given().contentType(MediaType.APPLICATION_JSON_VALUE).body(entregaDTO)
                 .when().post(ENDPOINT_ENTREGA);
+
+        String body = response.getBody().asString();
 
         EntregaDTO entregaDTOCreated = response.then().extract().as(EntregaDTO.class);
         entregaDTOCreated.setId(entregaDTOCreated.getId() - 1);

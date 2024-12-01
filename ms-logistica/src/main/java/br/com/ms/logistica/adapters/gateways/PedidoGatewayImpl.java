@@ -1,6 +1,7 @@
 package br.com.ms.logistica.adapters.gateways;
 
 import br.com.ms.logistica.adapters.clients.PedidoFeignClient;
+import br.com.ms.logistica.application.dto.PedidoDTO;
 import br.com.ms.logistica.application.gateways.PedidoGateway;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -13,6 +14,11 @@ public class PedidoGatewayImpl implements PedidoGateway {
     @Autowired
     public PedidoGatewayImpl(PedidoFeignClient client) {
         this.client = client;
+    }
+
+    @Override
+    public PedidoDTO buscaPorId(Long id) {
+        return client.buscaPorId(id);
     }
 
     @Override

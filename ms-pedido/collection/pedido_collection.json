@@ -1,0 +1,169 @@
+{
+	"info": {
+		"_postman_id": "46a40336-e3c3-4937-9ac9-abc84781d412",
+		"name": "E-Commerce - Pedido",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39998361"
+	},
+	"item": [
+		{
+			"name": "Pedido - registra",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"clienteId\": 1,\r\n  \"status\": \"EM_ABERTO\",\r\n  \"produtos\": [\r\n    {\r\n      \"id\": 1,\r\n      \"quantidade\": 1\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/e-commerce/pedido",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"e-commerce",
+						"pedido"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pedido - busca por id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/e-commerce/pedido/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"e-commerce",
+						"pedido",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pedido - atualiza lista de produtos",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n  {\r\n    \"id\": 0,\r\n    \"quantidade\": 0\r\n  }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/e-commerce/pedido/1/produtos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"e-commerce",
+						"pedido",
+						"1",
+						"produtos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pedido - confirma por id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/e-commerce/pedido/confirmacao/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"e-commerce",
+						"pedido",
+						"confirmacao",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pedido - conclui por id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/e-commerce/pedido/conclusao/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"e-commerce",
+						"pedido",
+						"conclusao",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pedido - cancela por id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/e-commerce/pedido/cancelamento/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"e-commerce",
+						"pedido",
+						"cancelamento",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

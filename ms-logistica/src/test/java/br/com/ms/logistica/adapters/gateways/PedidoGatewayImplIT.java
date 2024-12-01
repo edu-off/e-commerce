@@ -26,6 +26,25 @@ public class PedidoGatewayImplIT {
     public Long id = 1L;
 
     @Nested
+    public class BuscandoPedido {
+
+        @Test
+        @DisplayName("deve lancar excecao para pedido não encontrado")
+        public void deveLancarExcecaoParaPedidoNaoEncontrado() throws IOException {
+            StubConfig.recuperaPedidoMockResponseNotFound(id);
+            assertThatThrownBy(() -> pedidoGateway.buscaPorId(id)).isInstanceOf(NoSuchElementException.class);
+        }
+
+        @Test
+        @DisplayName("deve buscar pedido corretamente")
+        public void deveBuscarPedidoCorretamente() throws IOException {
+            StubConfig.recuperaPedidoMockResponseOK(id, 1L);
+            pedidoGateway.buscaPorId(id);
+        }
+
+    }
+
+    @Nested
     public class ConcluindoPedido {
 
         @Test

@@ -3,13 +3,17 @@ package br.com.ms.logistica.config;
 import br.com.ms.logistica.adapters.handler.ExceptionResponse;
 import br.com.ms.logistica.application.dto.ClienteDTO;
 import br.com.ms.logistica.application.dto.EnderecoDTO;
+import br.com.ms.logistica.application.dto.PedidoDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.cucumber.java.it.Ma;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
+import java.util.Map;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 
@@ -30,6 +34,27 @@ public class StubConfig {
     public static void recuperaClienteMockResponseNotFound(Long id) throws IOException {
         ExceptionResponse response = new ExceptionResponse(getTimestamp(), HttpStatus.NOT_FOUND.value(), "not found", "/e-commerce/cliente/");
         stubFor(get(urlEqualTo("/e-commerce/cliente/" + id))
+                .willReturn(aResponse()
+                        .withStatus(HttpStatus.NOT_FOUND.value())
+                        .withHeader("Content-Type", MediaType.APPLICATION_JSON_VALUE)
+                        .withBody(asJsonString(response))));
+    }
+
+    public static void recuperaPedidoMockResponseOK(Long id, Long clienteId) throws IOException {
+        List<Map<String, Object>> produtos = List.of(Map.of("id", 1L, "quantidade", 1));
+        PedidoDTO pedidoDTO = new PedidoDTO(id, clienteId, "PENDENTE", produtos);
+
+        stubFor(get(urlEqualTo("/e-commerce/pedido/" + id))
+                .willReturn(aResponse()
+                        .withStatus(HttpStatus.OK.value())
+                        .withHeader("Content-Type", MediaType.APPLICATION_JSON_VALUE)
+                        .withBody(asJsonString(pedidoDTO))));
+
+    }
+
+    public static void recuperaPedidoMockResponseNotFound(Long id) throws IOException {
+        ExceptionResponse response = new ExceptionResponse(getTimestamp(), HttpStatus.NOT_FOUND.value(), "not found", "/e-commerce/pedido/");
+        stubFor(get(urlEqualTo("/e-commerce/pedido/" + id))
                 .willReturn(aResponse()
                         .withStatus(HttpStatus.NOT_FOUND.value())
                         .withHeader("Content-Type", MediaType.APPLICATION_JSON_VALUE)

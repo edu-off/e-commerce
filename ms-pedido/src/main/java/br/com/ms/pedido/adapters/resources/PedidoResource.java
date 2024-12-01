@@ -21,18 +21,21 @@ public class PedidoResource {
     private final ConfirmaPedidoController confirmaPedidoController;
     private final CancelaPedidoController cancelaPedidoController;
     private final ConcluiPedidoController concluiPedidoController;
+    private final BuscaPedidoController buscaPedidoController;
 
     @Autowired
     public PedidoResource(RegistraPedidoController registraPedidoController,
                           AtualizaListaProdutosController atualizaListaProdutosController,
                           ConfirmaPedidoController confirmaPedidoController,
                           CancelaPedidoController cancelaPedidoController,
-                          ConcluiPedidoController concluiPedidoController) {
+                          ConcluiPedidoController concluiPedidoController,
+                          BuscaPedidoController buscaPedidoController) {
         this.registraPedidoController = registraPedidoController;
         this.atualizaListaProdutosController = atualizaListaProdutosController;
         this.confirmaPedidoController = confirmaPedidoController;
         this.cancelaPedidoController = cancelaPedidoController;
         this.concluiPedidoController = concluiPedidoController;
+        this.buscaPedidoController = buscaPedidoController;
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -63,6 +66,12 @@ public class PedidoResource {
     public ResponseEntity<String> conclui(@PathVariable Long id) {
         concluiPedidoController.run(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
+    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<PedidoDTO> buscaPorId(@PathVariable Long id) {
+        PedidoDTO responseDTO = buscaPedidoController.run(id);
+        return ResponseEntity.status(HttpStatus.OK).body(responseDTO);
     }
 
 }

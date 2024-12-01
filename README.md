@@ -4,10 +4,10 @@ Tech Challenge Pós Tech FIAP - Back end de aplicação que controla ações de 
 
 ## **Microsserviços:** 
 
-* Gestão de clientes: clique aqui.
-* Gestão de produtos: clique aqui.
-* Gestão de pedidos: clique aqui.
-* Gestão de logistica: clique aqui.
+* Gestão de clientes: [clique aqui.](https://github.com/edu-off/e-commerce/tree/main/ms-cliente)
+* Gestão de produtos: [clique aqui.](https://github.com/edu-off/e-commerce/tree/main/ms-produto)
+* Gestão de pedidos: [clique aqui.](https://github.com/edu-off/e-commerce/tree/main/ms-pedido)
+* Gestão de logistica: [clique aqui.](https://github.com/edu-off/e-commerce/tree/main/ms-logistica)
 
 <br><br/>
 

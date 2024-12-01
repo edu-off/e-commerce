@@ -1,9 +1,7 @@
 package br.com.ms.logistica.adapters.controllers;
 
-import br.com.ms.logistica.application.dto.EntregaDTO;
 import br.com.ms.logistica.application.exceptions.EntregaException;
 import br.com.ms.logistica.config.StubConfig;
-import br.com.ms.logistica.domain.entities.EntregaEntity;
 import br.com.ms.logistica.domain.enums.StatusEntrega;
 import br.com.ms.logistica.domain.enums.StatusEntregador;
 import br.com.ms.logistica.infrastructure.models.EntregaModel;

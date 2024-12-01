@@ -6,7 +6,6 @@ import br.com.ms.pedido.config.StubConfig;
 import br.com.ms.pedido.domain.enums.StatusPedido;
 import br.com.ms.pedido.infrastructure.models.PedidoModel;
 import br.com.ms.pedido.infrastructure.repositories.PedidoRepository;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -190,14 +189,27 @@ public class PedidoResourceIT {
 
     }
 
+    @Nested
+    public class BuscandoPedido {
 
-    private static String asJsonObject(Object obj) {
-        ObjectMapper objectMapper = new ObjectMapper();
-        try {
-            return objectMapper.writeValueAsString(obj);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        @Test
+        @DisplayName("deve lancar excecao para pedido nao encontrado")
+        public void deveLancarExcecaoParaPedidoNaoEncontrado() {
+            given().contentType(MediaType.APPLICATION_JSON_VALUE)
+                    .when().get("/e-commerce/pedido/{id}", 0L)
+                    .then().statusCode(HttpStatus.NOT_FOUND.value());
         }
+
+        @Test
+        @DisplayName("deve buscar pedido corretamente")
+        public void deveBuscarPedidoCorretamente() {
+            given().contentType(MediaType.APPLICATION_JSON_VALUE)
+                    .when().get("/e-commerce/pedido/{id}", pedidoModelSetup.getId())
+                    .then().statusCode(HttpStatus.OK.value())
+                    .body(matchesJsonSchemaInClasspath("./schemas/PedidoResponseSchema.json"));
+
+        }
+
     }
 
 }

@@ -1,0 +1,193 @@
+{
+	"info": {
+		"_postman_id": "4b4c358e-a170-4f35-b634-0a362368556e",
+		"name": "E-Commerce - Logística",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39998361"
+	},
+	"item": [
+		{
+			"name": "Entrega - registra",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"status\": \"PENDENTE\",\r\n  \"clienteId\": 1,\r\n  \"pedidoId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8084/e-commerce/entrega",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"e-commerce",
+						"entrega"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Entrega - inicia pendentes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8084/e-commerce/entrega/inicia-pendentes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"e-commerce",
+						"entrega",
+						"inicia-pendentes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Entregador - registra",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"status\": \"DISPONIVEL\",\r\n  \"nome\": \"nome entregador\",\r\n  \"email\": \"teste@teste.com.br\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8084/e-commerce/entregador",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"e-commerce",
+						"entregador"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Entregador - atualiza por id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"status\": \"DISPONIVEL\",\r\n  \"nome\": \"nome entregador\",\r\n  \"email\": \"teste@teste.com.br\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8084/e-commerce/entregador/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"e-commerce",
+						"entregador",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Entrega - cancela por id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8084/e-commerce/entrega/cancelamento/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"e-commerce",
+						"entrega",
+						"cancelamento",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Entrega - conclui por id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8084/e-commerce/entrega/conclusao/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"e-commerce",
+						"entrega",
+						"conclusao",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

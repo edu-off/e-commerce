@@ -10,6 +10,8 @@ import br.com.ms.logistica.infrastructure.repositories.EntregaRepository;
 import br.com.ms.logistica.infrastructure.repositories.EntregadorRepository;
 import io.cucumber.java.pt.E;
 import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import io.restassured.response.ValidatableResponse;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -21,6 +23,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
@@ -59,8 +62,8 @@ public class EntregaResourceIT {
     public class ValidacaoRegistroEntrega {
 
         @Test
-        @DisplayName("Deve retornar unprocessable entity para registro de Entrega inválido")
-        public void deveRetornarUnprocessableEntityParaRegistroDeEntregaInvalido() {
+        @DisplayName("Deve retornar unprocessable entity para registro de entrega inválida")
+        public void deveRetornarUnprocessableEntityParaRegistroDeEntregaInvalida() {
             EntregaDTO EntregaDTO = new EntregaDTO(null, "PENDENTE", 0L, 1L);
             given().contentType(MediaType.APPLICATION_JSON_VALUE).body(EntregaDTO)
                     .when().post("/e-commerce/entrega")
@@ -70,8 +73,31 @@ public class EntregaResourceIT {
         }
 
         @Test
-        @DisplayName("Deve cadastrar cliente")
-        public void deveCadastrarCliente() {
+        @DisplayName("Deve retornar not found para cliente inexistente")
+        public void deveRetornarNotFoundParaClienteInexistente() throws IOException {
+            StubConfig.recuperaClienteMockResponseNotFound(1L);
+            EntregaDTO EntregaDTO = new EntregaDTO(null, "PENDENTE", 1L, 1L);
+            given().contentType(MediaType.APPLICATION_JSON_VALUE).body(EntregaDTO)
+                    .when().post("/e-commerce/entrega")
+                    .then().statusCode(HttpStatus.NOT_FOUND.value());
+        }
+
+        @Test
+        @DisplayName("Deve retornar not found para pedido inexistente")
+        public void deveRetornarNotFoundParaPedidoInexistente() throws IOException {
+            StubConfig.recuperaClienteMockResponseOK(1L);
+            StubConfig.recuperaPedidoMockResponseNotFound(1L);
+            EntregaDTO EntregaDTO = new EntregaDTO(null, "PENDENTE", 1L, 1L);
+            given().contentType(MediaType.APPLICATION_JSON_VALUE).body(EntregaDTO)
+                    .when().post("/e-commerce/entrega")
+                    .then().statusCode(HttpStatus.NOT_FOUND.value());
+        }
+
+        @Test
+        @DisplayName("Deve registrar entrega")
+        public void deveRegistrarCliente() throws IOException {
+            StubConfig.recuperaClienteMockResponseOK(1L);
+            StubConfig.recuperaPedidoMockResponseOK(1L, 1L);
             EntregaDTO EntregaDTO = new EntregaDTO(null, "PENDENTE", 1L, 1L);
             given().contentType(MediaType.APPLICATION_JSON_VALUE).body(EntregaDTO)
                     .when().post("/e-commerce/entrega")

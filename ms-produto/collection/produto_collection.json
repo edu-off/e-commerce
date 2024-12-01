@@ -1,0 +1,264 @@
+{
+	"info": {
+		"_postman_id": "3e515fb7-ee46-4302-8630-f30c6345008c",
+		"name": "E-Commerce - Produto",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39998361"
+	},
+	"item": [
+		{
+			"name": "Produto - deleta por id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/e-commerce/produto/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"e-commerce",
+						"produto",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Produto - busca por id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/e-commerce/produto/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"e-commerce",
+						"produto",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Produto - loader produtos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/e-commerce/loader/produtos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"e-commerce",
+						"loader",
+						"produtos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Produto - busca por nome",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/e-commerce/produto/nome/nome",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"e-commerce",
+						"produto",
+						"nome",
+						"nome"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Produto - incrementa estoque por id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"nome atualizado\",\r\n  \"descricao\": \"desc\",\r\n  \"preco\": 1.1,\r\n  \"quantidade\": 200,\r\n  \"categoria\": \"categoria\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/e-commerce/produto/2/estoque/adiciona/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"e-commerce",
+						"produto",
+						"2",
+						"estoque",
+						"adiciona",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Produto - atualiza por id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"nome atualizado\",\r\n  \"descricao\": \"desc\",\r\n  \"preco\": 1.1,\r\n  \"quantidade\": 200,\r\n  \"categoria\": \"categoria\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/e-commerce/produto/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"e-commerce",
+						"produto",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Produto - registra",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"nome\",\r\n  \"descricao\": \"desc\",\r\n  \"preco\": 1.1,\r\n  \"quantidade\": 200,\r\n  \"categoria\": \"categoria\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/e-commerce/produto",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"e-commerce",
+						"produto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Produto - decrementa estoque por id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"nome atualizado\",\r\n  \"descricao\": \"desc\",\r\n  \"preco\": 1.1,\r\n  \"quantidade\": 200,\r\n  \"categoria\": \"categoria\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/e-commerce/produto/2/estoque/remove/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"e-commerce",
+						"produto",
+						"2",
+						"estoque",
+						"remove",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Produto - busca por descrição",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/e-commerce/produto/descricao/descricao",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"e-commerce",
+						"produto",
+						"descricao",
+						"descricao"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Produto - busca por categoria",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/e-commerce/produto/categoria/categoria",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"e-commerce",
+						"produto",
+						"categoria",
+						"categoria"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

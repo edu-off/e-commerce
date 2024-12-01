@@ -6,7 +6,7 @@ Tech Challenge Pós Tech FIAP - Microsserviço de gestão de produtos
 
 * **Linguagem:** Java 17
 * **Framework principal:** Spring boot 3.3.4
-* **Banco de dados:** Mysql 9.1.0
+* **Banco de dados:** Mysql latest
 * **Banco de dados em memória:** H2 Database 2.2.224
 * **Framework de testes:** Junit 5
 * **Relatório de testes:** Allure 2.29.0
